@@ -1,0 +1,28 @@
+.header {
+    display: flex;
+    position: fixed;
+    align-items: center;
+    height: 40px;
+    border: 1px solid rgba(34,36,38,.15);
+    box-shadow: 0 1px 2px 0 rgb(34 36 38 / 15%);
+    min-height: 2.85714286em;
+    width: 100%;
+    z-index: 10;
+}
+
+.header_container {
+    display: flex;
+    margin-left: 100px;
+    flex: 0.9;
+}
+
+
+.header_container h2 {   
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.shopping-cart {
+    display: flex;
+    flex: 0.1;
+}
