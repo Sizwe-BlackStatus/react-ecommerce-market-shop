@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./CartScreen.css";
 
@@ -9,14 +9,19 @@ function CartScreen({
   clearCart,
 }) {
   let history = useHistory();
-  let totalPrice = 0;
-  if (cartItem.length === 0) {
-    totalPrice = 0;
-  } else {
-    totalPrice = cartItem
-      .map((item) => item.quantityPriceTotal)
-      .reduce((prevTotal, nextTotal) => prevTotal + nextTotal);
-  }
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  useEffect(() => {
+    if (cartItem.length === 0) {
+      setTotalPrice(0);
+    } else {
+      setTotalPrice(
+        cartItem
+          .map((item) => item.quantityPriceTotal)
+          .reduce((prevTotal, nextTotal) => prevTotal + nextTotal, 0)
+      );
+    }
+  }, [totalPrice])
 
   return (
     <div className="cart-screen-container">
